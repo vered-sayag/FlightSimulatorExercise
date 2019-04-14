@@ -4,22 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator"
+        xmlns:local1="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="800" MinHeight="250" MinWidth="400">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="50" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="Flight Simulator1" Margin="4" FontSize="30"
-            HorizontalAlignment="Center"/>
-        <Canvas>
-            <Button x:Name="ButConnect" Canvas.Left="100" Canvas.Top="50"
-                Content="Connect" Padding="1" FontSize="18">
-            </Button>
-            <Button x:Name="ButSettings" Canvas.Left="200" Canvas.Top="50"
-                Content="Settings" Padding="1" FontSize="18">
-            </Button>
-        </Canvas>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Viewbox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
+        <TextBlock Text="Flight Simulator" 
+            HorizontalAlignment="Center"   Margin="3"
+                   Padding ="3" FontSize ="30" FontWeight="ExtraBlack" Foreground="DarkBlue" FontFamily="Cooper Black" />
+        </Viewbox>
+        <Viewbox Grid.Row="1" Grid.Column="0" >
+            <local1:Left/>
+        </Viewbox>
+        <Viewbox Grid.Row="1" Grid.Column="1" >
+            <local1:Right Padding="5" />
+        </Viewbox>
+      
     </Grid>
 </Window>

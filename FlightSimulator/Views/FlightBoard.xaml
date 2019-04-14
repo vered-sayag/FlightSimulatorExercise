@@ -10,11 +10,12 @@
     <Grid>
         <Grid.Resources>
             <Style TargetType="TextBlock" x:Key="LabelStyle">
-                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontSize" Value="15" />
                 <Setter Property="HorizontalAlignment" Value="Center" />
-                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontWeight" Value="ExtraBlack" />
                 <Setter Property="Foreground" Value="Black" />
-                <Setter Property="Margin" Value="4" />
+                <Setter Property="Margin" Value="2" />
+                <Setter Property="Foreground" Value="Black"/>
             </Style>
             <RotateTransform x:Key="rotate" Angle="90"/>
         </Grid.Resources>
