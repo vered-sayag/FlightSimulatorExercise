@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Flight Simulator" Margin="4" FontSize="30"
+            HorizontalAlignment="Center"/>
+        <Canvas>
+            <Button x:Name="ButConnect" Canvas.Left="100" Canvas.Top="50"
+                Content="Connect" Padding="1" FontSize="18">
+            </Button>
+            <Button x:Name="ButSettings" Canvas.Left="200" Canvas.Top="50"
+                Content="Settings" Padding="1" FontSize="18">
+            </Button>
+        </Canvas>
     </Grid>
 </Window>
