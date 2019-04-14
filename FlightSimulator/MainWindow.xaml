@@ -11,7 +11,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="Flight Simulator" Margin="4" FontSize="30"
+        <TextBlock Text="Flight Simulator1" Margin="4" FontSize="30"
             HorizontalAlignment="Center"/>
         <Canvas>
             <Button x:Name="ButConnect" Canvas.Left="100" Canvas.Top="50"
