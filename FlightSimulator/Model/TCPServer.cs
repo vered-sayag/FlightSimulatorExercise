@@ -17,10 +17,13 @@ namespace FlightSimulator.Model
         private TcpListener listener;
         private ClientHandler clientHandler;
         
-        public TCPServer(string IP, int port)
+        public TCPServer(string IP, int port, TcpListener lst, ClientHandler ch)
         {
             this.IP = IP;
             this.port = port;
+            this.clientHandler = ch;
+            this.listener = lst;
+
         }
 
         public void start()
@@ -49,8 +52,7 @@ namespace FlightSimulator.Model
                     catch (SocketException)
                     {
                         break;
-                    }
-
+                    }
                 }
             });
             t.Start();
