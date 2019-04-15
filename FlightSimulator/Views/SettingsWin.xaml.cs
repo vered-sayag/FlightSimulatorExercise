@@ -1,4 +1,4 @@
-﻿using FlightSimulator.ViewModels;
+﻿using FlightSimulator.ViewModels.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,18 +12,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using FlightSimulator.ViewModels;
+using FlightSimulator.Model;
 
 namespace FlightSimulator.Views
 {
     /// <summary>
-    /// Interaction logic for Manual.xaml
+    /// Interaction logic for Settings.xaml
     /// </summary>
-    public partial class Manual : UserControl
+    public partial class SettingsWin : Window
     {
-        public Manual()
+        public SettingsWin()
         {
             InitializeComponent();
-            DataContext = new ManualVM();
+            DataContext = new SettingsWindowViewModel(new ApplicationSettingsModel());
         }
     }
 }

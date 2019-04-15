@@ -7,15 +7,89 @@
         mc:Ignorable="d"
         Height="400" Width="400">
     <Grid>
-        <Viewbox>
-            <DockPanel TextBlock.FontSize="20">
-                <TextBlock Text="aileron" DockPanel.Dock="Top" Background="White" TextAlignment="Center"/>
-                <TextBlock DockPanel.Dock="Left" Background="White">2 (Left)</TextBlock>
-                <TextBlock DockPanel.Dock="Right" Background="White">3 (Right)</TextBlock>
-                <TextBlock DockPanel.Dock="Bottom" Background="White">4 (Bottom)</TextBlock>
-                <local:Joystick></local:Joystick>
-            </DockPanel>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="295*" />
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="25*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="30*" />
+            <ColumnDefinition Width="295*" />
+            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="25*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+        <Style TargetType="TextBlock">
+           
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextAlignment" Value="Center" />
+     
+        </Style>
+            <Style TargetType="Slider">
+                <Setter Property="Minimum" Value="-1"/>
+                <Setter Property="TickPlacement" Value="BottomRight"/>
+                <Setter Property="TickFrequency" Value="0.1" />
+                <Setter Property="Maximum" Value="1"/>
+                <Setter Property="Value" Value="0"/>
+                <Setter Property="Margin" Value="3"/>
+                <Setter Property="Width" Value="250"/>
+            </Style>
+        </Grid.Resources>
+        <Viewbox Grid.Row="0" Grid.Column="3">
+            <TextBlock Text="0.0" />
+        </Viewbox>
+        <Viewbox Grid.Row="1" Grid.Column="1">
+            <TextBlock Text="0" />
+        </Viewbox>
+        <Viewbox Grid.Row="3" Grid.Column="3">
+            <TextBlock Text="0" />
+        </Viewbox>
+        <Viewbox Grid.Row="1" Grid.Column="4">
+            <TextBlock Text="0.0" >
+                <TextBlock.LayoutTransform>
+                    <RotateTransform Angle="+90"/>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+                      
+        </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="2">
+            <TextBlock Text="←aileron→" />
+        </Viewbox>
+        <Viewbox Grid.Row="4" Grid.Column="2">
+            <TextBlock Text="←rudder→" />
+        </Viewbox>
+        <Viewbox Grid.Row="2" Grid.Column="4">
+            <TextBlock Text="←elevator→" >
+                <TextBlock.LayoutTransform>
+                    <RotateTransform Angle="+90"/>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+        </Viewbox>
+        <Viewbox Grid.Row="2" Grid.Column="0">
+            <TextBlock Text="←throttle→" >
+                <TextBlock.LayoutTransform>
+                    <RotateTransform Angle="+90"/>
+                </TextBlock.LayoutTransform>
+            </TextBlock>
+        </Viewbox>
+        <Viewbox Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2">
+
+            <local:Joystick></local:Joystick>
+        </Viewbox>
+        <Viewbox Grid.Row="2" Grid.Column="1">
+            <Slider x:Name="throttleSlider" Value="{Binding Throttle}">
+                <Slider.LayoutTransform>
+                    <RotateTransform Angle="+90"/>
+                </Slider.LayoutTransform>
+            </Slider>
+        </Viewbox>
+        <Viewbox Grid.Row="3" Grid.Column="2">
+            <Slider x:Name="RudderSlider" Value="{Binding Rudder}"/>
         </Viewbox>
     </Grid>
 </UserControl>

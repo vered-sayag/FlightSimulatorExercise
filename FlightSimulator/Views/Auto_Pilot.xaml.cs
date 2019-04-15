@@ -16,14 +16,16 @@ using System.Windows.Shapes;
 namespace FlightSimulator.Views
 {
     /// <summary>
-    /// Interaction logic for Manual.xaml
+    /// Interaction logic for Auto_Pilot.xaml
     /// </summary>
-    public partial class Manual : UserControl
+    public partial class Auto_Pilot : UserControl
     {
-        public Manual()
+        public Auto_Pilot()
         {
             InitializeComponent();
-            DataContext = new ManualVM();
+            DataContext = new Auto_PilotVM();
         }
+
+      
     }
 }
