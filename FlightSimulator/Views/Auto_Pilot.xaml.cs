@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlightSimulator.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,24 +12,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using FlightSimulator.ViewModels;
 
 namespace FlightSimulator.Views
 {
     /// <summary>
-    /// Interaction logic for Left.xaml
+    /// Interaction logic for Auto_Pilot.xaml
     /// </summary>
-    public partial class Left : UserControl
+    public partial class Auto_Pilot : UserControl
     {
-        public Left()
+        public Auto_Pilot()
         {
             InitializeComponent();
-            DataContext = new SettingsAndConnectVM();
-
-
+            DataContext = new Auto_PilotVM();
         }
 
-        private void FlightBoard_Loaded(object sender, RoutedEventArgs e)
+        private void SetBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

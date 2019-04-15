@@ -5,42 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
-         Height="400" Width="400">
+         Height="450" Width="400">
     <Grid>
-        <Grid.Resources>
        
-            <Style TargetType="Button">
-                <Setter Property="Button.Background" Value="DarkBlue" />
-                <Setter Property="Button.FontSize" Value="8" />
-                <Setter Property="Button.FontFamily" Value="Showcard Gothic" />
-                <Setter Property="Button.Foreground" Value="White" />
-                <Setter Property="Button.Margin" Value="4" />
-            </Style>
-        </Grid.Resources>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="350*" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
-            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="100*" />
+            <ColumnDefinition Width="150*" />
+            <ColumnDefinition Width="150*" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+
+        <Grid.Resources>
+
+            <Style TargetType="TextBlock">
+                <Setter Property="Button.FontSize" Value="4" />
+            </Style>
+            
+        </Grid.Resources>
+        
         <Viewbox Grid.Row="1" Grid.Column="0"  Grid.ColumnSpan="3" HorizontalAlignment="Center">
-            <local:FlightBoard/>
+            <local:FlightBoard Loaded="FlightBoard_Loaded"/>
+        </Viewbox>
+
+        <Viewbox Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left">
+            <Button Name="ButSettings" Content="Settings" Command="{Binding SetingCommand}" >
+            </Button>
+
+        </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right">
+            <Button x:Name="ButConnect" Content="Connect" Command="{Binding ConnectCommand}">
+                </Button>
         </Viewbox>
        
-        <Viewbox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right">
-            <Button x:Name="ButConnect" 
-                 Content="Connect">
-                </Button>
-        </Viewbox>
-        <Viewbox Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left">
-                <Button Name="ButSettings" 
-  Content="Settings" >
-                </Button>
-                
-        </Viewbox>
         
         
 

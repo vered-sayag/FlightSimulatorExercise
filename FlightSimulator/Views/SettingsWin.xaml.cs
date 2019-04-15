@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlightSimulator.ViewModels.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,25 +13,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using FlightSimulator.ViewModels;
+using FlightSimulator.Model;
 
 namespace FlightSimulator.Views
 {
     /// <summary>
-    /// Interaction logic for Left.xaml
+    /// Interaction logic for Settings.xaml
     /// </summary>
-    public partial class Left : UserControl
+    public partial class SettingsWin : Window
     {
-        public Left()
+        public SettingsWin()
         {
             InitializeComponent();
-            DataContext = new SettingsAndConnectVM();
-
-
-        }
-
-        private void FlightBoard_Loaded(object sender, RoutedEventArgs e)
-        {
-
+            DataContext = new SettingsWindowViewModel(new ApplicationSettingsModel());
         }
     }
 }

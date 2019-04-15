@@ -14,7 +14,7 @@
                     <local:Manual></local:Manual>
                 </TabItem>
                 <TabItem Header="Auto Pilot" FontSize ="20"  Padding="3" FontFamily="Segoe UI Black" >
-                   
+                    <local:Auto_Pilot></local:Auto_Pilot>
                 </TabItem>
             </TabControl>
         </Viewbox>
