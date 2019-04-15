@@ -92,6 +92,7 @@
     <Compile Include="ViewModels\BaseNotify.cs" />
     <Compile Include="ViewModels\BoolToColorConverter.cs" />
     <Compile Include="ViewModels\FlightBoardViewModel.cs" />
+    <Compile Include="ViewModels\ManualVM.cs" />
     <Compile Include="ViewModels\Windows\SettingsWindowViewModel.cs" />
     <Compile Include="Views\Auto_Pilot.xaml.cs">
       <DependentUpon>Auto_Pilot.xaml</DependentUpon>

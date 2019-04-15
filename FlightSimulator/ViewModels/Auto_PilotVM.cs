@@ -10,7 +10,7 @@ namespace FlightSimulator.ViewModels
 {
     class Auto_PilotVM : BaseNotify
     {
-        private bool sending = false;
+        private bool sending = true;
         public bool Sending
         {
             get { return sending; }
@@ -18,9 +18,12 @@ namespace FlightSimulator.ViewModels
             {
                 sending = value;
                 NotifyPropertyChanged("Sending");
+               
+
             }
         }
-
+        
+       
         private string setComendText;
         public string SetComendText
         {
@@ -29,6 +32,13 @@ namespace FlightSimulator.ViewModels
             {
                 setComendText = value;
                 NotifyPropertyChanged("SetComendText");
+                if (setComendText != "")
+                {
+                    Sending = false;
+                }else
+                {
+                    Sending = true;
+                }
             }
         }
 
@@ -58,6 +68,7 @@ namespace FlightSimulator.ViewModels
         private void ClearClick()
         {
             SetComendText = "";
+            Sending = true;
         }
 
    

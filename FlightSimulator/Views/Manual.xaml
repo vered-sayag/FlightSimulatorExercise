@@ -82,14 +82,14 @@
             <local:Joystick></local:Joystick>
         </Viewbox>
         <Viewbox Grid.Row="2" Grid.Column="1">
-            <Slider x:Name="throttleSlider">
+            <Slider x:Name="throttleSlider" Value="{Binding Throttle}">
                 <Slider.LayoutTransform>
                     <RotateTransform Angle="+90"/>
                 </Slider.LayoutTransform>
             </Slider>
         </Viewbox>
         <Viewbox Grid.Row="3" Grid.Column="2">
-            <Slider x:Name="RudderSlider"/>
+            <Slider x:Name="RudderSlider" Value="{Binding Rudder}"/>
         </Viewbox>
     </Grid>
 </UserControl>

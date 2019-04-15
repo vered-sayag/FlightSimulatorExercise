@@ -26,9 +26,6 @@ namespace FlightSimulator.Views
             DataContext = new Auto_PilotVM();
         }
 
-        private void SetBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+      
     }
 }

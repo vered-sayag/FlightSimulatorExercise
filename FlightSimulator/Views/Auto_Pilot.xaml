@@ -19,9 +19,11 @@
             <ColumnDefinition Width="200" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+       
         <Viewbox Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2"  HorizontalAlignment="Center">
-            <TextBox x:Name="SetBox" Padding="3" Margin="3" Width="400" Height="350" TextChanged="SetBox_TextChanged"
-                     Text="{Binding SetComendText}" AcceptsReturn="True" Background="{Binding Sending, Converter={StaticResource BoolToColorConverter}}"/>
+            <TextBox x:Name="SetBox" Padding="3" Margin="3" Width="400" Height="350" 
+                     Text="{Binding SetComendText,UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" 
+                     Background="{Binding Sending, Converter={StaticResource BoolToColorConverter},UpdateSourceTrigger=PropertyChanged}" />
         </Viewbox>
         <Viewbox Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right">
             <Button x:Name="ButOK" Content="OK" Command= "{Binding OkCommand}">

@@ -14,7 +14,7 @@ namespace FlightSimulator.ViewModels
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             bool val = (bool)value;
-            if (val)
+            if (!val)
                 return Brushes.PaleVioletRed;
             return Brushes.White;
         }
