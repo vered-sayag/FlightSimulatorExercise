@@ -23,7 +23,7 @@ namespace FlightSimulator
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new CloseVM();
+           
         }
     }
 }
