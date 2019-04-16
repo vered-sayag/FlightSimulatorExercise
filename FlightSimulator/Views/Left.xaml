@@ -33,7 +33,7 @@
        
 
         <Viewbox Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left">
-            <Button Name="ButSettings" Content="Settings" Command="{Binding SetingCommand}" >
+            <Button Name="ButSettings" Content="Settings" Command="{Binding SettingsCommand}" >
             </Button>
 
         </Viewbox>

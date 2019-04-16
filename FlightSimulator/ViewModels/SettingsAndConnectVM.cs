@@ -12,12 +12,12 @@ namespace FlightSimulator.Views
 {
     class SettingsAndConnectVM
     {
-        private ICommand setingCommand;
-        public ICommand SetingCommand
+        private ICommand settingsCommand;
+        public ICommand SettingsCommand
         {
             get
             {
-                return setingCommand ?? (setingCommand = new CommandHandler(() => SettingsClick()));
+                return settingsCommand ?? (settingsCommand = new CommandHandler(() => SettingsClick()));
             }
         }
 

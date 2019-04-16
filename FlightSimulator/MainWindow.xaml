@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator"
-        xmlns:local1="clr-namespace:FlightSimulator.Views"
+        xmlns:localView="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
         
         Title="Flight Simulator" Height="500" Width="800" MinHeight="400" MinWidth="650" >
@@ -24,7 +24,8 @@
         </Grid.Resources>
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="55" />
+            <RowDefinition Height="55*" />
+            <RowDefinition Height="445*" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -54,10 +55,10 @@
             </Grid>
         </Viewbox>
         <Viewbox Grid.Row="1" Grid.Column="0" >
-            <local1:Left />
+            <localView:Left />
         </Viewbox>
         <Viewbox Grid.Row="1" Grid.Column="1" >
-            <local1:Right  />
+            <localView:Right  />
         </Viewbox>
       
     </Grid>
