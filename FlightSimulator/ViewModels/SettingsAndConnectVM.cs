@@ -38,7 +38,24 @@ namespace FlightSimulator.Views
 
         private void ConnectClick()
         {
+        // TO-DO!!!
+        // call modal to conect
+        }
 
+
+        private ICommand disConnectCommand;
+        public ICommand DisConnectCommand
+        {
+            get
+            {
+                return connectCommand ?? (connectCommand = new CommandHandler(() => DisConnectClick()));
+            }
+        }
+
+        private void DisConnectClick()
+        {
+            // TO-DO!!!
+            // call modal to dis - conect
         }
 
     }

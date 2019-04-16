@@ -6,13 +6,16 @@
         xmlns:local="clr-namespace:FlightSimulator"
         xmlns:local1="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d"
-        Title="Flight Simulator" Height="500" Width="800" MinHeight="400" MinWidth="650">
+        
+        Title="Flight Simulator" Height="500" Width="800" MinHeight="400" MinWidth="650" >
+
     <Grid>
+        
         <Grid.Resources>
 
             <Style TargetType="Button">
                 <Setter Property="Button.Background" Value="DarkBlue" />
-                <Setter Property="Button.FontSize" Value="8" />
+                <Setter Property="Button.FontSize" Value="20" />
                 <Setter Property="Button.FontFamily" Value="Showcard Gothic" />
                 <Setter Property="Button.Foreground" Value="White" />
                 <Setter Property="Button.Margin" Value="4" />
@@ -21,23 +24,40 @@
         </Grid.Resources>
         
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="55" />
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+        
         <Viewbox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" >
-        <TextBlock Text="Flight Simulator" 
-            HorizontalAlignment="Center"   Margin="3"
-                   Padding ="3" FontSize ="30"  Foreground="DarkBlue" FontFamily="Showcard Gothic" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="100*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Button.FontSize" Value="30" />
+                        <Setter Property="Button.FontFamily" Value="Showcard Gothic" />
+                        <Setter Property="Button.Margin" Value="3" />
+                        <Setter Property="Button.Padding" Value="3" />
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                    </Style>
+                </Grid.Resources>
+                <TextBlock Grid.Column="0"  Text="✈" Foreground="Black"  />
+                <TextBlock Grid.Column="1" Text="Flight Simulator" Foreground="DarkBlue" />
+                
+            </Grid>
         </Viewbox>
         <Viewbox Grid.Row="1" Grid.Column="0" >
-            <local1:Left Loaded="Left_Loaded"/>
+            <local1:Left />
         </Viewbox>
         <Viewbox Grid.Row="1" Grid.Column="1" >
-            <local1:Right Padding="5" />
+            <local1:Right  />
         </Viewbox>
       
     </Grid>

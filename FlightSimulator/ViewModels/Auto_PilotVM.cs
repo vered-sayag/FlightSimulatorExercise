@@ -54,6 +54,9 @@ namespace FlightSimulator.ViewModels
         private void OkClick()
         {
             Sending = true;
+            //TO-DO
+            //take the setComendText and send to the simolator(call the model to do that )
+            //Noted tht can be namber of line thet need be send seprite
         }
 
         private ICommand clearCommand;

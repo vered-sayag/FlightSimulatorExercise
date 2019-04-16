@@ -8,8 +8,8 @@
         Height="400" Width="400">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="25*" />
-            <RowDefinition Height="25*" />
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="30*" />
             <RowDefinition Height="295*" />
             <RowDefinition Height="30*" />
             <RowDefinition Height="25*" />
@@ -19,19 +19,18 @@
             <ColumnDefinition Width="25*" />
             <ColumnDefinition Width="30*" />
             <ColumnDefinition Width="295*" />
-            <ColumnDefinition Width="25*" />
+            <ColumnDefinition Width="30*" />
             <ColumnDefinition Width="25*" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.Resources>
         <Style TargetType="TextBlock">
-           
+
             <Setter Property="FontSize" Value="20" />
             <Setter Property="TextAlignment" Value="Center" />
      
         </Style>
             <Style TargetType="Slider">
-                <Setter Property="Minimum" Value="-1"/>
                 <Setter Property="TickPlacement" Value="BottomRight"/>
                 <Setter Property="TickFrequency" Value="0.1" />
                 <Setter Property="Maximum" Value="1"/>
@@ -40,23 +39,25 @@
                 <Setter Property="Width" Value="250"/>
             </Style>
         </Grid.Resources>
-        <Viewbox Grid.Row="0" Grid.Column="3">
-            <TextBlock Text="0.0" />
-        </Viewbox>
-        <Viewbox Grid.Row="1" Grid.Column="1">
-            <TextBlock Text="0" />
-        </Viewbox>
-        <Viewbox Grid.Row="3" Grid.Column="3">
-            <TextBlock Text="0" />
-        </Viewbox>
-        <Viewbox Grid.Row="1" Grid.Column="4">
-            <TextBlock Text="0.0" >
+      
+            <TextBlock Text="{Binding ElementName=joystick, Path=Aileron, StringFormat=0.0#}" 
+                       Grid.Row="0" Grid.Column="3" FontSize="12"/>
+
+
+        <TextBlock Text="{Binding Throttle ,StringFormat=0.#}" Grid.Row="1" Grid.Column="1" FontSize="12"  />
+
+
+        <TextBlock Text="{Binding Rudder,StringFormat=0.#}"  Grid.Row="3" Grid.Column="3" FontSize="12"/>
+        
+        
+            <TextBlock Text="{Binding ElementName=joystick, Path=Elevator, StringFormat=0.0#}"
+                       FontSize="12" Grid.Row="1" Grid.Column="4">
                 <TextBlock.LayoutTransform>
                     <RotateTransform Angle="+90"/>
                 </TextBlock.LayoutTransform>
             </TextBlock>
                       
-        </Viewbox>
+       
         <Viewbox Grid.Row="0" Grid.Column="2">
             <TextBlock Text="←aileron→" />
         </Viewbox>
@@ -79,17 +80,19 @@
         </Viewbox>
         <Viewbox Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="2">
 
-            <local:Joystick></local:Joystick>
+            <local:Joystick x:Name="joystick"
+                            Aileron="{Binding Aileron, Mode=OneWayToSource}"
+                            Elevator="{Binding Elevator, Mode=OneWayToSource}"></local:Joystick>
         </Viewbox>
         <Viewbox Grid.Row="2" Grid.Column="1">
-            <Slider x:Name="throttleSlider" Value="{Binding Throttle}">
+            <Slider x:Name="throttleSlider" Value="{Binding Throttle}" Minimum="0">
                 <Slider.LayoutTransform>
                     <RotateTransform Angle="+90"/>
                 </Slider.LayoutTransform>
             </Slider>
         </Viewbox>
         <Viewbox Grid.Row="3" Grid.Column="2">
-            <Slider x:Name="RudderSlider" Value="{Binding Rudder}"/>
+            <Slider x:Name="RudderSlider" Value="{Binding Rudder}" Minimum="-1"/>
         </Viewbox>
     </Grid>
 </UserControl>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlightSimulator.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,11 +23,7 @@ namespace FlightSimulator
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void Left_Loaded(object sender, RoutedEventArgs e)
-        {
-
+            DataContext = new CloseVM();
         }
     }
 }

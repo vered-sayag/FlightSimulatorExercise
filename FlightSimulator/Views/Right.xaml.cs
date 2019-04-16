@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace FlightSimulator.Views
 {
-    /// <summary>
-    /// Interaction logic for Right.xaml
-    /// </summary>
     public partial class Right : UserControl
     {
         public Right()

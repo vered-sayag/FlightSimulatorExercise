@@ -12,18 +12,62 @@ namespace FlightSimulator.ViewModels
         public double Rudder
         {
             set
-            {
-                rudder = value;
+            {rudder = value;
+                //TO-DO!!!
+                //call the server model to send the valeu of the rudder to the simolator
             }
+                get
+            { return rudder;}
         }
         private double throttle = 0;
 
         public double Throttle
         {
             set
-            {
-                throttle = value;
+            { throttle = value;
+                //TO-DO!!!
+                //call the server model to send the valeu of the throttle to the simolator
+            }
+            get
+            { return throttle;
+
             }
         }
+
+        private double aileron = 0;
+
+        public double Aileron
+        {
+            set
+            {
+                aileron = value;
+                //TO-DO!!!
+                //call the server model to send the valeu of the aileron to the simolator
+            }
+            get
+            {
+                return aileron;
+
+            }
+        }
+
+        private double elevator = 0;
+
+        public double Elevator
+        {
+            set
+            {
+                elevator = value;
+                //TO-DO!!!
+                //call the server model to send the valeu of the elevator to the simolator
+            }
+            get
+            {
+                return elevator;
+
+            }
+        }
+
+
     }
 }

@@ -27,10 +27,5 @@ namespace FlightSimulator.Views
 
 
         }
-
-        private void FlightBoard_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
