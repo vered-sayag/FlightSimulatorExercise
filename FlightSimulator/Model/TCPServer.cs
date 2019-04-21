@@ -12,25 +12,20 @@ namespace FlightSimulator.Model
 {
     class TCPServer
     {
-        private string IP;
-        private int port;
-        private TcpListener listener;
-        private ClientHandler clientHandler;
-        
-        public TCPServer(string IP, int port, TcpListener lst, ClientHandler ch)
-        {
-            this.IP = IP;
-            this.port = port;
-            this.clientHandler = ch;
-            this.listener = lst;
+        TcpListener server;
+        private ApplicationSettingsModel app;
+        private NetworkStream stream;
+        private IPEndPoint ep;
 
+        public TCPServer()
+        {
+            app = new ApplicationSettingsModel();
+            ep = new IPEndPoint(IPAddress.Parse(app.FlightServerIP), app.FlightInfoPort);
+            server = new TcpListener(ep);
         }
 
         public void start()
         {
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse(IP), port);
-            TcpListener server = new TcpListener(ep);
-
             try
             {
                 server.Start();
@@ -45,9 +40,8 @@ namespace FlightSimulator.Model
                 {
                     try
                     {
-                        TcpClient client = listener.AcceptTcpClient();
+                        TcpClient client = server.AcceptTcpClient();
                         Console.WriteLine("Got new connection");
-                        clientHandler.HandleClient(client);
                     }
                     catch (SocketException)
                     {
@@ -55,12 +49,7 @@ namespace FlightSimulator.Model
                     }
                 }
             });
-            t.Start();
-            
+            t.Start();   
         }
-
-
-
-        
     }
 }

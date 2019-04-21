@@ -87,6 +87,7 @@
     <Compile Include="Model\EventArgs\VirtualJoystickEventArgs.cs" />
     <Compile Include="Model\IclientHandler.cs" />
     <Compile Include="Model\Interface\ISettingsModel.cs" />
+    <Compile Include="Model\TCPClient.cs" />
     <Compile Include="Model\TCPServer.cs" />
     <Compile Include="ViewModels\Auto_PilotVM.cs" />
     <Compile Include="ViewModels\BaseNotify.cs" />

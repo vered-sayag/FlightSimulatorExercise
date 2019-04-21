@@ -1,4 +1,5 @@
 ﻿using FlightSimulator.Model;
+using FlightSimulator.Views;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,8 +20,6 @@ namespace FlightSimulator.ViewModels
             {
                 sending = value;
                 NotifyPropertyChanged("Sending");
-               
-
             }
         }
         
@@ -55,13 +54,17 @@ namespace FlightSimulator.ViewModels
         private void OkClick()
         {
             Sending = true;
+            /*if (!SettingsAndConnectVM.Is_connect)
+            {
+                return;
+            }*/
             using (StringReader reader = new StringReader(setComendText))
             {
                 string command;
                 while ((command = reader.ReadLine()) != null)
                 {
-                    // TODO
-                    // send command to the server
+                    TCPClient client = TCPClient.Instance;
+                    client.Write(command);
                 }
             }
             ClearClick();

@@ -36,9 +36,21 @@ namespace FlightSimulator.Views
             }
         }
 
+        private bool is_connect = false;
+        public bool Is_connect
+        {
+            get { return is_connect; }
+            set
+            {
+                is_connect = value;
+            }
+        }
+
         private void ConnectClick()
         {
+            is_connect = true;
             //TCPServer server = new TCPServer(txtServerIP);
+            TCPClient client = new TCPClient();
         }
 
 
