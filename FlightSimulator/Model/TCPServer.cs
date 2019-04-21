@@ -1,4 +1,7 @@
-﻿using System;
+﻿#define LON_INDEX
+#define LAT_INDEX
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using FlightSimulator.ViewModels;
+
 
 namespace FlightSimulator.Model
 {
@@ -49,8 +53,10 @@ namespace FlightSimulator.Model
                         {
                             prop = Convert.ToString(reader.Read());
                             numbers = prop.Split(',').Select(n => double.Parse(n)).ToArray();
-                            //temp_lon = numbers[];
-                            //temp_lat = numbers[];
+                            //temp_lon = numbers[LON_INDEX];
+                            //temp_lat = numbers[LAT_INDEX];
+                            //FlightBoardViewModel.lon = temp_lon;
+                            //FlightBoardViewModel.lat = temp_lat;
                         }
                     }
                     catch (SocketException)
