@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlightSimulator.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,11 @@ namespace FlightSimulator.ViewModels
         public double Rudder
         {
             set
-            {rudder = value;
-                //TO-DO!!!
-                //call the server model to send the valeu of the rudder to the simolator
+            {
+                rudder = value;
+                TCPClient client = TCPClient.Instance;
+                string command = "set controls/flight/rudder " + rudder;
+                client.Write(command);
             }
                 get
             { return rudder;}
@@ -24,9 +27,11 @@ namespace FlightSimulator.ViewModels
         public double Throttle
         {
             set
-            { throttle = value;
-                //TO-DO!!!
-                //call the server model to send the valeu of the throttle to the simolator
+            {
+                throttle = value;
+                TCPClient client = TCPClient.Instance;
+                string command = "set controls/engines/current-engine/throttle " + rudder;
+                client.Write(command);
             }
             get
             { return throttle;
@@ -41,13 +46,13 @@ namespace FlightSimulator.ViewModels
             set
             {
                 aileron = value;
-                //TO-DO!!!
-                //call the server model to send the valeu of the aileron to the simolator
+                TCPClient client = TCPClient.Instance;
+                string command = "set controls/flight/aileron " + rudder;
+                client.Write(command);
             }
             get
             {
                 return aileron;
-
             }
         }
 
@@ -58,16 +63,14 @@ namespace FlightSimulator.ViewModels
             set
             {
                 elevator = value;
-                //TO-DO!!!
-                //call the server model to send the valeu of the elevator to the simolator
+                TCPClient client = TCPClient.Instance;
+                string command = "set controls/flight/elevator " + rudder;
+                client.Write(command);
             }
             get
             {
                 return elevator;
-
             }
         }
-
-
     }
 }
