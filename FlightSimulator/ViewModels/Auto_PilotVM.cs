@@ -66,6 +66,7 @@ namespace FlightSimulator.ViewModels
                 while ((command = reader.ReadLine()) != null)
                 {
                     TCPClient client = TCPClient.Instance;
+                    command = command + "\r\n"; // check if work
                     client.Write(command);
                 }
             }
