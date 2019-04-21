@@ -22,7 +22,7 @@ namespace FlightSimulator.ViewModels
                     return;
                 }
                 TCPClient client = TCPClient.Instance;
-                string command = "set controls/flight/rudder " + rudder;
+                string command = "set controls/flight/rudder " + rudder + "\r\n";
                 client.Write(command);
             }
                 get
@@ -40,7 +40,7 @@ namespace FlightSimulator.ViewModels
                     return;
                 }
                 TCPClient client = TCPClient.Instance;
-                string command = "set controls/engines/current-engine/throttle " + rudder;
+                string command = "set controls/engines/current-engine/throttle " + rudder + "\r\n";
                 client.Write(command);
             }
             get
@@ -61,7 +61,7 @@ namespace FlightSimulator.ViewModels
                     return;
                 }
                 TCPClient client = TCPClient.Instance;
-                string command = "set controls/flight/aileron " + rudder;
+                string command = "set controls/flight/aileron " + rudder + "\r\n";
                 client.Write(command);
             }
             get
@@ -82,7 +82,7 @@ namespace FlightSimulator.ViewModels
                     return;
                 }
                 TCPClient client = TCPClient.Instance;
-                string command = "set controls/flight/elevator " + rudder;
+                string command = "set controls/flight/elevator " + rudder + "\r\n";
                 client.Write(command);
             }
             get
