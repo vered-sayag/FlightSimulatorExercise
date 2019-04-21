@@ -44,6 +44,7 @@ namespace FlightSimulator.Model
             using (BinaryWriter writer = new BinaryWriter(stream))
             {
                 writer.Write(command);
+                writer.Flush();
             }   
         }
 
