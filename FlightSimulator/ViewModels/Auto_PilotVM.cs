@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using FlightSimulator.ViewModels;
 
 namespace FlightSimulator.ViewModels
 {
@@ -53,11 +54,11 @@ namespace FlightSimulator.ViewModels
 
         private void OkClick()
         {
-            Sending = true;
-            /*if (!SettingsAndConnectVM.Is_connect)
+            if (!SettingsAndConnectVM.Is_connect)
             {
                 return;
-            }*/
+            }
+            Sending = true;
             using (StringReader reader = new StringReader(setComendText))
             {
                 string command;
@@ -67,7 +68,6 @@ namespace FlightSimulator.ViewModels
                     client.Write(command);
                 }
             }
-            ClearClick();
         }
 
         private ICommand clearCommand;
