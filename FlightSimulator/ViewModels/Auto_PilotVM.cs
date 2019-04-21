@@ -68,7 +68,6 @@ namespace FlightSimulator.ViewModels
                     client.Write(command);
                 }
             }
-            ClearClick();
         }
 
         private ICommand clearCommand;

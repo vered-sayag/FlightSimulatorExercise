@@ -1,4 +1,6 @@
 ﻿using FlightSimulator.Model;
+using FlightSimulator.ViewModels;
+using FlightSimulator.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,10 @@ namespace FlightSimulator.ViewModels
             set
             {
                 rudder = value;
+                if (!SettingsAndConnectVM.Is_connect)
+                {
+                    return;
+                }
                 TCPClient client = TCPClient.Instance;
                 string command = "set controls/flight/rudder " + rudder;
                 client.Write(command);
@@ -29,6 +35,10 @@ namespace FlightSimulator.ViewModels
             set
             {
                 throttle = value;
+                if (!SettingsAndConnectVM.Is_connect)
+                {
+                    return;
+                }
                 TCPClient client = TCPClient.Instance;
                 string command = "set controls/engines/current-engine/throttle " + rudder;
                 client.Write(command);
@@ -46,6 +56,10 @@ namespace FlightSimulator.ViewModels
             set
             {
                 aileron = value;
+                if (!SettingsAndConnectVM.Is_connect)
+                {
+                    return;
+                }
                 TCPClient client = TCPClient.Instance;
                 string command = "set controls/flight/aileron " + rudder;
                 client.Write(command);
@@ -63,6 +77,10 @@ namespace FlightSimulator.ViewModels
             set
             {
                 elevator = value;
+                if (!SettingsAndConnectVM.Is_connect)
+                {
+                    return;
+                }
                 TCPClient client = TCPClient.Instance;
                 string command = "set controls/flight/elevator " + rudder;
                 client.Write(command);
