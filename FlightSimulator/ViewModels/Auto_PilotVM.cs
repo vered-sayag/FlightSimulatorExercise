@@ -1,6 +1,7 @@
 ﻿using FlightSimulator.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,9 +55,16 @@ namespace FlightSimulator.ViewModels
         private void OkClick()
         {
             Sending = true;
-            //TO-DO
-            //take the setComendText and send to the simolator(call the model to do that )
-            //Noted tht can be namber of line thet need be send seprite
+            using (StringReader reader = new StringReader(setComendText))
+            {
+                string command;
+                while ((command = reader.ReadLine()) != null)
+                {
+                    // TODO
+                    // send command to the server
+                }
+            }
+            ClearClick();
         }
 
         private ICommand clearCommand;

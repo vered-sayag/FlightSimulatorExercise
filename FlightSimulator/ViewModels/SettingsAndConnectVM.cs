@@ -38,8 +38,7 @@ namespace FlightSimulator.Views
 
         private void ConnectClick()
         {
-        // TO-DO!!!
-        // call modal to conect
+            //TCPServer server = new TCPServer(txtServerIP);
         }
 
 
@@ -55,7 +54,7 @@ namespace FlightSimulator.Views
         private void DisConnectClick()
         {
             // TO-DO!!!
-            // call modal to dis - conect
+            // call model to dis - connect
         }
 
     }
