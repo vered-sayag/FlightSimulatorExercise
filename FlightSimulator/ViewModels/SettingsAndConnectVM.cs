@@ -49,7 +49,7 @@ namespace FlightSimulator.Views
         private void ConnectClick()
         {
             is_connect = true;
-            //TCPServer server = new TCPServer(txtServerIP);
+            TCPServer server = new TCPServer();
             TCPClient client = new TCPClient();
         }
 
