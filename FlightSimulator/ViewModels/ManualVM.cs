@@ -26,7 +26,7 @@ namespace FlightSimulator.ViewModels
                 client.Write(command);
             }
                 get
-            { return rudder;}
+            { return rudder; }
         }
         private double throttle = 0;
 
