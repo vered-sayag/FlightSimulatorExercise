@@ -36,8 +36,8 @@ namespace FlightSimulator.Views
             }
         }
 
-        private bool is_connect = false;
-        public bool Is_connect
+        static private bool is_connect = false;
+        static public bool Is_connect
         {
             get { return is_connect; }
             set
@@ -59,7 +59,7 @@ namespace FlightSimulator.Views
         {
             get
             {
-                return connectCommand ?? (connectCommand = new CommandHandler(() => DisConnectClick()));
+                return disConnectCommand ?? (disConnectCommand = new CommandHandler(() => DisConnectClick()));
             }
         }
 

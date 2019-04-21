@@ -1,5 +1,6 @@
 ﻿using FlightSimulator.Model;
 using FlightSimulator.Views;
+using FlightSimulator.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -53,11 +54,11 @@ namespace FlightSimulator.ViewModels
 
         private void OkClick()
         {
-            Sending = true;
-            /*if (!SettingsAndConnectVM.Is_connect)
+            if (!SettingsAndConnectVM.Is_connect)
             {
                 return;
-            }*/
+            }
+            Sending = true;
             using (StringReader reader = new StringReader(setComendText))
             {
                 string command;
