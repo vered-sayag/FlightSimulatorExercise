@@ -9,13 +9,10 @@ namespace FlightSimulator.ViewModels
 {
     public class FlightBoardViewModel : BaseNotify
     {
-        private double lon;
-        //in the model when you get a data from the simulator update the Lon (Of the plane)
-        //by write in the model "Lon=..."
-        public double Lon
+        static private double lon;
+        static public double Lon
         {
             get { return lon; }
-            
             set
             {
                 lon = value;
@@ -23,10 +20,8 @@ namespace FlightSimulator.ViewModels
             }
         }
 
-        private double lat;
-        //in the model when you get a data from the simulator update the Lat (Of the plane)
-        //by write in the model "Lat=..."
-        public double Lat
+        static private double lat;
+        static public double Lat
         {
             get { return lat; }
             set

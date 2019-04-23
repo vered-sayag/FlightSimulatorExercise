@@ -1,7 +1,4 @@
-﻿#define LON_INDEX
-#define LAT_INDEX
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -42,7 +39,7 @@ namespace FlightSimulator.Model
             Thread t = new Thread(() =>
             {
                 string prop;
-                int temp_lon, temp_lat;
+                double temp_lon, temp_lat;
                 double[] numbers;
                 while (true)
                 {
@@ -53,10 +50,10 @@ namespace FlightSimulator.Model
                         {
                             prop = Convert.ToString(reader.Read());
                             numbers = prop.Split(',').Select(n => double.Parse(n)).ToArray();
-                            //temp_lon = numbers[LON_INDEX];
-                            //temp_lat = numbers[LAT_INDEX];
-                            //FlightBoardViewModel.lon = temp_lon;
-                            //FlightBoardViewModel.lat = temp_lat;
+                            temp_lon = numbers[0];
+                            temp_lat = numbers[1];
+                            FlightBoardViewModel.Lon = temp_lon;
+                            FlightBoardViewModel.Lat = temp_lat;
                         }
                     }
                     catch (SocketException)
@@ -66,6 +63,11 @@ namespace FlightSimulator.Model
                 }
             });
             t.Start();   
+        }
+
+        public void Stop()
+        {
+            server.Stop();
         }
     }
 }

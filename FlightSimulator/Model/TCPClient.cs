@@ -27,7 +27,6 @@ namespace FlightSimulator.Model
         #endregion
         TcpClient client;
         private ApplicationSettingsModel app;
-        private NetworkStream stream;
         private IPEndPoint ep;
 
         public TCPClient()
@@ -35,12 +34,20 @@ namespace FlightSimulator.Model
             app = new ApplicationSettingsModel();
             client = new TcpClient();
             ep = new IPEndPoint(IPAddress.Parse(app.FlightServerIP), app.FlightCommandPort);
-            client.Connect(ep);
-            stream = client.GetStream();
+            try
+            {
+                while (!client.Connected)
+                {
+                    client.Connect(ep);
+                }
+            }
+            catch (Exception e){}
         }
 
         public void Write(string command)
         {
+            NetworkStream stream;
+            stream = client.GetStream();
             using (BinaryWriter writer = new BinaryWriter(stream))
             {
                 writer.Write(command);
@@ -48,6 +55,9 @@ namespace FlightSimulator.Model
             }   
         }
 
-
+        public void Close()
+        {
+            client.Close();
+        }
     }
 }
