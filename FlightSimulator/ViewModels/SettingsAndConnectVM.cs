@@ -69,6 +69,7 @@ namespace FlightSimulator.Views
             TCPClient client = new TCPClient();
             client.Close();
             server.Stop();
+            is_connect = false;
         }
 
     }
