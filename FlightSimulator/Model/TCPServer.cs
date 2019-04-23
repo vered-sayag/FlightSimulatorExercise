@@ -38,6 +38,7 @@ namespace FlightSimulator.Model
             }
             Thread t = new Thread(() =>
             {
+                FlightBoardViewModel fbvm = FlightBoardViewModel.Instance;
                 string prop;
                 double temp_lon, temp_lat;
                 double[] numbers;
@@ -52,8 +53,8 @@ namespace FlightSimulator.Model
                             numbers = prop.Split(',').Select(n => double.Parse(n)).ToArray();
                             temp_lon = numbers[0];
                             temp_lat = numbers[1];
-                            FlightBoardViewModel.Lon = temp_lon;
-                            FlightBoardViewModel.Lat = temp_lat;
+                            fbvm.Lon = temp_lon;
+                            fbvm.Lat = temp_lat;
                         }
                     }
                     catch (SocketException)
