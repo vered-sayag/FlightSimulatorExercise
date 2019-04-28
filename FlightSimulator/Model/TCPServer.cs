@@ -25,25 +25,13 @@ namespace FlightSimulator.Model
         public TCPServer()
         {
             IPAddress localAddr = IPAddress.Parse(ApplicationSettingsModel.Instance.FlightServerIP);
-         //   app = new ApplicationSettingsModel();
-          //  ep = new IPEndPoint(IPAddress.Parse(app.FlightServerIP), app.FlightInfoPort);
-           // Console.WriteLine("Information " + app.FlightInfoPort);
-            //ep = new IPEndPoint(IPAddress.Any, app.FlightInfoPort);
             server = new TcpListener(localAddr, ApplicationSettingsModel.Instance.FlightInfoPort);
             locker = new object();
         }
 
         public void start()
         {
-            //try
-            //{
-               
-            //}
-            /*catch (SocketException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }*/
-           
+
             Thread t = new Thread(() =>
             {
                 server.Start();
@@ -57,8 +45,6 @@ namespace FlightSimulator.Model
                     while ((s = reader.ReadChar()) != '\n') input += s; // read untill \n
                     string[] param = input.Split(','); // split by comma
 
-                    Console.WriteLine("Received: {0}", param[0]);
-                    Console.WriteLine("Received: {0}", param[1]);
                     lock (locker)
                     {
                         // take from the flight only the lon and the lat

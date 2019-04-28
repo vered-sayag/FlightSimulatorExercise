@@ -40,7 +40,7 @@ namespace FlightSimulator.Model
             app = new ApplicationSettingsModel();
             client = new TcpClient();
             ep = new IPEndPoint(IPAddress.Parse(app.FlightServerIP), app.FlightCommandPort);
-            Console.WriteLine("command " + app.FlightCommandPort);
+          
             try
             {
                 while (!client.Connected)
@@ -56,7 +56,7 @@ namespace FlightSimulator.Model
             stream = client.GetStream();
             byte[] send = Encoding.ASCII.GetBytes(command.ToString());
             stream.Write(send, 0, send.Length);
-            //System.Threading.Thread.Sleep(2000);
+           
         }
 
         public void AutoWrite(string command)
