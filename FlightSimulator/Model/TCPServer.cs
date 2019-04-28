@@ -21,52 +21,53 @@ namespace FlightSimulator.Model
         private IPEndPoint ep;
         private BinaryReader reader;
         private readonly object locker;
+        private Thread t;
 
         public TCPServer()
         {
             IPAddress localAddr = IPAddress.Parse(ApplicationSettingsModel.Instance.FlightServerIP);
-         //   app = new ApplicationSettingsModel();
-          //  ep = new IPEndPoint(IPAddress.Parse(app.FlightServerIP), app.FlightInfoPort);
-           // Console.WriteLine("Information " + app.FlightInfoPort);
-            //ep = new IPEndPoint(IPAddress.Any, app.FlightInfoPort);
             server = new TcpListener(localAddr, ApplicationSettingsModel.Instance.FlightInfoPort);
             locker = new object();
         }
 
         public void start()
         {
-            //try
-            //{
-               
-            //}
-            /*catch (SocketException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }*/
-           
-            Thread t = new Thread(() =>
-            {
-                server.Start();
-                TcpClient client = server.AcceptTcpClient();
-                FlightBoardViewModel fbvm = FlightBoardViewModel.Instance;
-                while (true)
-                {
-                    reader = new BinaryReader(client.GetStream());
-                    string input = ""; // input will be stored here
-                    char s;
-                    while ((s = reader.ReadChar()) != '\n') input += s; // read untill \n
-                    string[] param = input.Split(','); // split by comma
 
-                    Console.WriteLine("Received: {0}", param[0]);
-                    Console.WriteLine("Received: {0}", param[1]);
-                    lock (locker)
+            t = new Thread(() =>
+            {
+                try
+                {
+                    server.Start();
+                    TcpClient client = server.AcceptTcpClient();
+                    FlightBoardViewModel fbvm = FlightBoardViewModel.Instance;
+                    while (true)
                     {
-                        // take from the flight only the lon and the lat
-                        fbvm.Lon = Convert.ToDouble(param[0]);
-                        fbvm.Lat = Convert.ToDouble(param[1]);
+                        try
+                        {
+                            reader = new BinaryReader(client.GetStream());
+                            string input = ""; // input will be stored here
+                            char s;
+                            while ((s = reader.ReadChar()) != '\n') input += s; // read untill \n
+                            string[] param = input.Split(','); // split by comma
+
+                            lock (locker)
+                            {
+                                // take from the flight only the lon and the lat
+                                fbvm.Lon = Convert.ToDouble(param[0]);
+                                fbvm.Lat = Convert.ToDouble(param[1]);
+                            }
+                        }
+                        catch
+                        {
+                            break;
+                        }
                     }
+                    client.Close();
                 }
-                client.Close();
+                catch
+                {
+
+                }
             });
             t.Start();   
         }

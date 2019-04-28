@@ -29,7 +29,7 @@ namespace FlightSimulator.Views
         public FlightBoard()
         {
             InitializeComponent();
-            DataContext = new FlightBoardViewModel();
+            DataContext = FlightBoardViewModel.Instance;
             (DataContext as FlightBoardViewModel).PropertyChanged += Vm_PropertyChanged;
         }
 
