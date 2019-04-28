@@ -42,6 +42,7 @@ namespace FlightSimulator.ViewModels
             set
             {
                 lat = value;
+                Console.WriteLine(lat);
                 NotifyPropertyChanged("Lat");
             }
         }
