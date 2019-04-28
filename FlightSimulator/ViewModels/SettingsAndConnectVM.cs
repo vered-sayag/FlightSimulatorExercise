@@ -46,10 +46,11 @@ namespace FlightSimulator.Views
             }
         }
 
+        private TCPServer server;
         private void ConnectClick()
         {
-            Is_connect = true;
-            //TCPServer server = new TCPServer(txtServerIP);
+            is_connect = true;
+            server = new TCPServer();
             TCPClient client = new TCPClient();
         }
 
@@ -65,9 +66,13 @@ namespace FlightSimulator.Views
 
         private void DisConnectClick()
         {
-            // TO-DO!!!
-            // call model to dis - connect
+            if (is_connect)
+            {
+                TCPClient client = new TCPClient();
+                client.Close();
+                server.Stop();
+                is_connect = false;
+            }
         }
-
     }
 }

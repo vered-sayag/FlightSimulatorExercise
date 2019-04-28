@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+
 using System.Threading.Tasks;
 
 namespace FlightSimulator.Model
@@ -27,27 +28,42 @@ namespace FlightSimulator.Model
         #endregion
         TcpClient client;
         private ApplicationSettingsModel app;
-        private NetworkStream stream;
         private IPEndPoint ep;
+
+        private NetworkStream stream;
+
+        
 
         public TCPClient()
         {
             app = new ApplicationSettingsModel();
             client = new TcpClient();
             ep = new IPEndPoint(IPAddress.Parse(app.FlightServerIP), app.FlightCommandPort);
-            client.Connect(ep);
-            stream = client.GetStream();
+            try
+            {
+                while (!client.Connected)
+                {
+                    client.Connect(ep);
+                }
+            }
+            catch (Exception e){}
         }
 
         public void Write(string command)
         {
-            using (BinaryWriter writer = new BinaryWriter(stream))
-            {
-                writer.Write(command);
-                writer.Flush();
-            }   
+            stream = client.GetStream();
+            Console.Out.WriteLine(command.ToString());
+            //using (BinaryWriter writer = new BinaryWriter(stream))
+            byte[] send = Encoding.ASCII.GetBytes(command.ToString());
+            
+            stream.Write(send, 0, send.Length);
+            
+            //System.Threading.Thread.Sleep(2000);
         }
 
-
+        public void Close()
+        {
+            client.Close();
+        }
     }
 }

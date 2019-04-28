@@ -7,6 +7,8 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using FlightSimulator.ViewModels;
+
 
 namespace FlightSimulator.Model
 {
@@ -36,12 +38,24 @@ namespace FlightSimulator.Model
             }
             Thread t = new Thread(() =>
             {
+                FlightBoardViewModel fbvm = FlightBoardViewModel.Instance;
+                string prop;
+                double temp_lon, temp_lat;
+                double[] numbers;
                 while (true)
                 {
                     try
                     {
                         TcpClient client = server.AcceptTcpClient();
-                        Console.WriteLine("Got new connection");
+                        using (BinaryReader reader = new BinaryReader(stream))
+                        {
+                            prop = Convert.ToString(reader.Read());
+                            numbers = prop.Split(',').Select(n => double.Parse(n)).ToArray();
+                            temp_lon = numbers[0];
+                            temp_lat = numbers[1];
+                            fbvm.Lon = temp_lon;
+                            fbvm.Lat = temp_lat;
+                        }
                     }
                     catch (SocketException)
                     {
@@ -50,6 +64,11 @@ namespace FlightSimulator.Model
                 }
             });
             t.Start();   
+        }
+
+        public void Stop()
+        {
+            server.Stop();
         }
     }
 }
