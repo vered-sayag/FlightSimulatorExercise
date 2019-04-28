@@ -57,7 +57,7 @@ namespace FlightSimulator.Model
             byte[] send = Encoding.ASCII.GetBytes(command.ToString());
             
             stream.Write(send, 0, send.Length);
-            
+            Console.WriteLine(send);
             //System.Threading.Thread.Sleep(2000);
         }
 
