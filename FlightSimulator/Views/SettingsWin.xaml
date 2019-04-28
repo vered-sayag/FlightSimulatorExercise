@@ -53,11 +53,11 @@
         </Viewbox>
         <Viewbox  Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  Margin="3" >
             <TextBox x:Name="txtInfoPort"  Padding="3" 
-                  Text="{Binding  FlightCommandPort}" MinWidth="135"></TextBox>
+                  Text="{Binding FlightInfoPort}" MinWidth="135"></TextBox>
         </Viewbox>
         <Viewbox  Grid.Row="3" Grid.Column="2"  Margin="3" >
         <TextBox x:Name="txtCommandPort" Padding="3"
-                  Text="{Binding  FlightInfoPort}" MinWidth="100"></TextBox>
+                  Text="{Binding  FlightCommandPort}" MinWidth="100"></TextBox>
         </Viewbox>
 
         <Viewbox Grid.Row="4" HorizontalAlignment="Right" Grid.Column="0">

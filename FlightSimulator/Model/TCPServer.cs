@@ -19,53 +19,54 @@ namespace FlightSimulator.Model
         private ApplicationSettingsModel app;
         private NetworkStream stream;
         private IPEndPoint ep;
+        private BinaryReader reader;
+        private readonly object locker;
 
         public TCPServer()
         {
-            app = new ApplicationSettingsModel();
-            ep = new IPEndPoint(IPAddress.Parse(app.FlightServerIP), app.FlightInfoPort);
-            server = new TcpListener(ep);
+            IPAddress localAddr = IPAddress.Parse(ApplicationSettingsModel.Instance.FlightServerIP);
+         //   app = new ApplicationSettingsModel();
+          //  ep = new IPEndPoint(IPAddress.Parse(app.FlightServerIP), app.FlightInfoPort);
+           // Console.WriteLine("Information " + app.FlightInfoPort);
+            //ep = new IPEndPoint(IPAddress.Any, app.FlightInfoPort);
+            server = new TcpListener(localAddr, ApplicationSettingsModel.Instance.FlightInfoPort);
+            locker = new object();
         }
 
         public void start()
         {
-            try
-            {
-                server.Start();
-            }
-            catch (SocketException ex)
+            //try
+            //{
+               
+            //}
+            /*catch (SocketException ex)
             {
                 Console.WriteLine(ex.Message);
-            }
+            }*/
+           
             Thread t = new Thread(() =>
             {
+                server.Start();
+                TcpClient client = server.AcceptTcpClient();
                 FlightBoardViewModel fbvm = FlightBoardViewModel.Instance;
-                string prop;
-                double temp_lon, temp_lat;
-                double[] numbers;
                 while (true)
                 {
-                    try
+                    reader = new BinaryReader(client.GetStream());
+                    string input = ""; // input will be stored here
+                    char s;
+                    while ((s = reader.ReadChar()) != '\n') input += s; // read untill \n
+                    string[] param = input.Split(','); // split by comma
+
+                    Console.WriteLine("Received: {0}", param[0]);
+                    Console.WriteLine("Received: {0}", param[1]);
+                    lock (locker)
                     {
-                        TcpClient client = server.AcceptTcpClient();
-                        stream = client.GetStream();
-                        StreamReader reader = new StreamReader(stream);
-                        //using (BinaryReader reader = new BinaryReader(stream))
-                        {
-                            //prop = Convert.ToString(reader.Read());
-                            prop = reader.ReadLine();
-                            numbers = prop.Split(',').Select(n => double.Parse(n)).ToArray();
-                            temp_lon = numbers[0];
-                            temp_lat = numbers[1];
-                            fbvm.Lon = temp_lon;
-                            fbvm.Lat = temp_lat;
-                        }
-                    }
-                    catch (SocketException)
-                    {
-                        break;
+                        // take from the flight only the lon and the lat
+                        fbvm.Lon = Convert.ToDouble(param[0]);
+                        fbvm.Lat = Convert.ToDouble(param[1]);
                     }
                 }
+                client.Close();
             });
             t.Start();   
         }

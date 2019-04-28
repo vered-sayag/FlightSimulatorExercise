@@ -32,6 +32,7 @@ namespace FlightSimulator.ViewModels
             set
             {
                 lon = value;
+                Console.WriteLine(lon);
                 NotifyPropertyChanged("Lon");
             }
         }

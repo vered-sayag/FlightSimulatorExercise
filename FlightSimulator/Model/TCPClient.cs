@@ -40,6 +40,7 @@ namespace FlightSimulator.Model
             app = new ApplicationSettingsModel();
             client = new TcpClient();
             ep = new IPEndPoint(IPAddress.Parse(app.FlightServerIP), app.FlightCommandPort);
+            Console.WriteLine("command " + app.FlightCommandPort);
             try
             {
                 while (!client.Connected)
