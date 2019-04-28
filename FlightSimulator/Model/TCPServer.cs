@@ -33,14 +33,17 @@ namespace FlightSimulator.Model
         public void start()
         {
 
+
             t = new Thread(() =>
-            {
+             {
                 try
                 {
+
                     server.Start();
                     TcpClient client = server.AcceptTcpClient();
                     FlightBoardViewModel fbvm = FlightBoardViewModel.Instance;
                     while (true)
+
                     {
                         try
                         {
@@ -53,8 +56,7 @@ namespace FlightSimulator.Model
                             lock (locker)
                             {
                                 // take from the flight only the lon and the lat
-                                fbvm.Lon = Convert.ToDouble(param[0]);
-                                fbvm.Lat = Convert.ToDouble(param[1]);
+                                fbvm.change(Convert.ToDouble(param[0]), Convert.ToDouble(param[1]));
                             }
                         }
                         catch
