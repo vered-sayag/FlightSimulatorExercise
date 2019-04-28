@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
-
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace FlightSimulator.Model
@@ -29,13 +29,14 @@ namespace FlightSimulator.Model
         TcpClient client;
         private ApplicationSettingsModel app;
         private IPEndPoint ep;
-
+        private readonly object locker;
         private NetworkStream stream;
 
         
 
         public TCPClient()
         {
+            locker = new object();
             app = new ApplicationSettingsModel();
             client = new TcpClient();
             ep = new IPEndPoint(IPAddress.Parse(app.FlightServerIP), app.FlightCommandPort);
@@ -55,6 +56,37 @@ namespace FlightSimulator.Model
             byte[] send = Encoding.ASCII.GetBytes(command.ToString());
             stream.Write(send, 0, send.Length);
             //System.Threading.Thread.Sleep(2000);
+        }
+
+        public void AutoWrite(string command)
+        {
+            stream = client.GetStream();
+            List<string> listString = command.Split('\r').ToList();
+            for (int i = 0; i < listString.Count; i++)
+            {
+                string word = listString[i];
+                if (word[0] == '\n')
+                {
+                    listString[i] = word.Replace("\n", "");
+                }
+                    listString[i] += "\r\n";
+                }
+                Thread threadClient = new Thread(() =>
+                {
+                    foreach (string oneCommand in listString)
+                    {
+                    lock (locker)
+                    {
+                        Console.WriteLine(oneCommand);
+                        byte[] byteTime = System.Text.Encoding.ASCII.GetBytes(oneCommand);
+                        stream.Write(byteTime, 0, byteTime.Length);
+                     }
+                    Thread.Sleep(2000);
+                 }
+            });
+            threadClient.Start();
+   
+
         }
 
         public void Close()

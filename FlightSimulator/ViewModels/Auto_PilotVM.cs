@@ -60,16 +60,18 @@ namespace FlightSimulator.ViewModels
                 return;
             }
             Sending = true;
-            using (StringReader reader = new StringReader(setComendText))
-            {
-                string command;
-                while ((command = reader.ReadLine()) != null)
-                {
-                    TCPClient client = TCPClient.Instance;
-                    command = command + "\r\n"; // check if work
-                    client.Write(command);
-                }
-            }
+            //using (StringReader reader = new StringReader(setComendText))
+            //{
+            //    string command;
+            //    while ((command = reader.ReadLine()) != null)
+            //    {
+            //        TCPClient client = TCPClient.Instance;
+            //        command = command + "\r\n"; // check if work
+                   
+            //    }
+            //}
+            TCPClient client = TCPClient.Instance;
+            client.AutoWrite(setComendText);
         }
 
         private ICommand clearCommand;

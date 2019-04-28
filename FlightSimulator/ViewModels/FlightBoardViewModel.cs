@@ -10,6 +10,7 @@ namespace FlightSimulator.ViewModels
     public class FlightBoardViewModel : BaseNotify
     {
         #region Singleton
+
         private static FlightBoardViewModel m_Instance = null;
         public static FlightBoardViewModel Instance
         {
@@ -31,7 +32,6 @@ namespace FlightSimulator.ViewModels
             set
             {
                 lon = value;
-                Console.WriteLine(value);
                 NotifyPropertyChanged("Lon");
             }
         }
@@ -43,7 +43,7 @@ namespace FlightSimulator.ViewModels
             set
             {
                 lat = value;
-                Console.WriteLine(value);
+                Console.WriteLine(lat);
                 NotifyPropertyChanged("Lat");
             }
         }
