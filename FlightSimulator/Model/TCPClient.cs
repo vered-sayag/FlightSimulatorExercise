@@ -52,12 +52,8 @@ namespace FlightSimulator.Model
         public void Write(string command)
         {
             stream = client.GetStream();
-            Console.Out.WriteLine(command.ToString());
-            //using (BinaryWriter writer = new BinaryWriter(stream))
             byte[] send = Encoding.ASCII.GetBytes(command.ToString());
-            
             stream.Write(send, 0, send.Length);
-            Console.WriteLine(send);
             //System.Threading.Thread.Sleep(2000);
         }
 

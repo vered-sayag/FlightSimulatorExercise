@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -12,7 +13,7 @@ using FlightSimulator.ViewModels;
 
 namespace FlightSimulator.Model
 {
-    class TCPServer
+    class TCPServer 
     {
         TcpListener server;
         private ApplicationSettingsModel app;
@@ -47,9 +48,12 @@ namespace FlightSimulator.Model
                     try
                     {
                         TcpClient client = server.AcceptTcpClient();
-                        using (BinaryReader reader = new BinaryReader(stream))
+                        stream = client.GetStream();
+                        StreamReader reader = new StreamReader(stream);
+                        //using (BinaryReader reader = new BinaryReader(stream))
                         {
-                            prop = Convert.ToString(reader.Read());
+                            //prop = Convert.ToString(reader.Read());
+                            prop = reader.ReadLine();
                             numbers = prop.Split(',').Select(n => double.Parse(n)).ToArray();
                             temp_lon = numbers[0];
                             temp_lat = numbers[1];

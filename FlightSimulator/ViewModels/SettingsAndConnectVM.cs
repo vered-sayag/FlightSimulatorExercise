@@ -51,6 +51,7 @@ namespace FlightSimulator.Views
         {
             is_connect = true;
             server = new TCPServer();
+            server.start();
             TCPClient client = new TCPClient();
         }
 
