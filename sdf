@@ -1,0 +1,237 @@
+[33mcommit 2aa4a43c2b45e2e4d06c5e3b92a64a43b0e80d06[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Sun Apr 28 20:25:27 2019 +0300
+
+    finish!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+[33mcommit 3a81df6ff141db1749465966247dacc5c42d304e[m
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Sun Apr 28 19:22:22 2019 +0300
+
+    serever try
+
+[33mcommit b89570425ec814725eb9bbc3855cc17fa7562fd3[m
+Author: david <regev.david06@gmail.com>
+Date:   Sun Apr 28 17:58:48 2019 +0300
+
+    auto writer
+
+[33mcommit 6f1e1b9dd53c0591bc98f7df4e1a86298e8a7a03[m
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Sun Apr 28 17:25:39 2019 +0300
+
+    try fix server
+
+[33mcommit 62ac142ed427618ab94fc582d6e5d118cf9b4279[m
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Sun Apr 28 15:16:18 2019 +0300
+
+    Client works
+
+[33mcommit ba3f61cf38c0e153b47d6934c47681b831eee3b1[m
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Sun Apr 28 14:12:28 2019 +0300
+
+    client works
+
+[33mcommit 63d3cfafaa63f615d0040030d1ccd0e47ca02327[m
+Merge: 8212cd8 7640cc5
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Sun Apr 28 13:55:07 2019 +0300
+
+    try fix connect
+
+[33mcommit 7640cc511af798488fae7aa38ee0f8a554556223[m
+Author: David <regev.david06@gmail.com>
+Date:   Tue Apr 23 19:38:38 2019 +0300
+
+    Test Final
+
+[33mcommit cbe01340fac146d8472d85e59c6981269ae9d184[m
+Author: David <regev.david06@gmail.com>
+Date:   Tue Apr 23 17:08:49 2019 +0300
+
+    For Test
+
+[33mcommit 71fd02eae28a4086b44dbbe8a06c4c2872bcb1e8[m
+Author: David <regev.david06@gmail.com>
+Date:   Tue Apr 23 15:33:01 2019 +0300
+
+    for test
+
+[33mcommit 15aa541cb74564e5fba4293b5a47ea82d1ddee40[m
+Author: David <regev.david06@gmail.com>
+Date:   Sun Apr 21 18:30:39 2019 +0300
+
+    Server
+
+[33mcommit 63197de4f683dfc6e48de719690a9a09078fa88f[m
+Author: David <regev.david06@gmail.com>
+Date:   Sun Apr 21 18:19:35 2019 +0300
+
+    server
+
+[33mcommit 8212cd87f93e8d142cbbf2965d784802a21e8405[m
+Merge: e9c58ad 1c0325c
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Sun Apr 21 18:00:28 2019 +0300
+
+    Merge branch 'master' of https://github.com/regevDavid/FlightSimulatorExercise
+
+[33mcommit 1c0325c8f4ed4ef931a6b82407354695fe6b71a0[m
+Author: David <regev.david06@gmail.com>
+Date:   Sun Apr 21 17:47:56 2019 +0300
+
+    flush in client
+
+[33mcommit e9c58ad83d7e57a940d74c30604d028044efc575[m
+Merge: 18aa085 fcba222
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Sun Apr 21 17:31:44 2019 +0300
+
+    Merge branch 'master' of https://github.com/regevDavid/FlightSimulatorExercise
+
+[33mcommit fcba2220744411c783f6a02632dd39c405079c36[m
+Author: David <regev.david06@gmail.com>
+Date:   Sun Apr 21 17:30:40 2019 +0300
+
+    test sending
+
+[33mcommit 18aa085bd79dd5c8c2dfabfca157feca201a5e66[m
+Merge: ef6bafb 279989b
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Sun Apr 21 17:19:22 2019 +0300
+
+    Merge branch 'master' of https://github.com/regevDavid/FlightSimulatorExercise
+
+[33mcommit 279989b5751bc81ce832631881b2217b2215e0a5[m
+Author: David <regev.david06@gmail.com>
+Date:   Sun Apr 21 17:19:02 2019 +0300
+
+    is_connect
+
+[33mcommit ef6bafb0f1af2c461cb3c727350b5112cd205c0f[m
+Merge: 0726af4 b42c88f
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Sun Apr 21 17:16:25 2019 +0300
+
+    Merge branch 'master' of https://github.com/regevDavid/FlightSimulatorExercise
+
+[33mcommit b42c88f15aedd7e3289165c95589f7db20715c11[m
+Author: David <regev.david06@gmail.com>
+Date:   Sun Apr 21 17:15:22 2019 +0300
+
+    connect fail
+
+[33mcommit 0726af45d84d03c86c2f3bbbcc4a5b85de2e5bde[m
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Sun Apr 21 17:03:34 2019 +0300
+
+    view model edit
+
+[33mcommit adce9fe91dc743686f2dbec0915574d69dcd01df[m
+Author: David <regev.david06@gmail.com>
+Date:   Sun Apr 21 16:02:17 2019 +0300
+
+    auto pilot
+
+[33mcommit 0601d4e3e069c688bbabcff477bb7bb986e5bd88[m
+Author: David <regev.david06@gmail.com>
+Date:   Sun Apr 21 12:35:34 2019 +0300
+
+    Auto Pilot without sending to server
+
+[33mcommit 52370df91486127935e07b011cc1dfd461908ad9[m
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Tue Apr 16 19:07:08 2019 +0300
+
+    Rename a variable - not meaningful
+
+[33mcommit 9b75330c4a0dda420d70ddae342c3efac98a05d9[m
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Tue Apr 16 17:52:57 2019 +0300
+
+    remove unecessary file
+
+[33mcommit ed5e755fa301e6e826ac364ffd1d5a6542d56d1a[m
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Tue Apr 16 17:47:49 2019 +0300
+
+    binding completed
+
+[33mcommit 62b10f7153e6cffcab9661f0b3596abd7960780c[m
+Merge: 1041ba9 b2143b7
+Author: vered sayag <43340342+vered-sayag@users.noreply.github.com>
+Date:   Tue Apr 16 01:28:04 2019 +0300
+
+    Merge pull request #1 from regevDavid/vered_view
+    
+    Vered view
+
+[33mcommit b2143b7774448579b0b12b257c096f7fcc4d66be[m[33m ([m[1;31morigin/vered_view[m[33m)[m
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Tue Apr 16 01:01:00 2019 +0300
+
+    view and bindings
+
+[33mcommit cd45f5b027c787ffbc29755673483340403491ed[m
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Mon Apr 15 19:23:13 2019 +0300
+
+    complit view
+
+[33mcommit 1041ba90a284cd092ba6f614c9fa08e390fcf8b3[m
+Merge: 0f638f9 58cd265
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Sun Apr 14 18:05:28 2019 +0300
+
+    Merge branch 'master' of https://github.com/regevDavid/FlightSimulatorExercise
+
+[33mcommit 0f638f92709ece3446a8f43aa4b7e90698a42955[m
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Sun Apr 14 18:05:24 2019 +0300
+
+    front - middle
+
+[33mcommit 58cd2650e30c27aebf6f66d01b58c43ab816c7cd[m
+Author: David <regev.david06@gmail.com>
+Date:   Sun Apr 14 18:03:55 2019 +0300
+
+    server
+
+[33mcommit 3f92421da86bffdb26e5be2ae0fb97ef223f77ae[m
+Merge: c02a0ad 475c6c6
+Author: David <regev.david06@gmail.com>
+Date:   Sun Apr 14 17:59:12 2019 +0300
+
+    Merge branch 'master' of https://github.com/regevDavid/FlightSimulatorExercise
+
+[33mcommit c02a0ad94b709708baea0473d1b7fa34f9333e2a[m
+Author: David <regev.david06@gmail.com>
+Date:   Sun Apr 14 17:59:09 2019 +0300
+
+    Tcp Server
+
+[33mcommit 475c6c6d91be5928514f93b23cb3c27625fd60eb[m
+Author: Vered Sayag <vered8765@gmail.com>
+Date:   Sun Apr 14 12:42:24 2019 +0300
+
+    test
+
+[33mcommit 72927030e0a30a6e1de2de789d69527d2de9a3b5[m
+Author: David <regev.david06@gmail.com>
+Date:   Sun Apr 14 12:39:46 2019 +0300
+
+    grid
+
+[33mcommit 5d7a8795996841cb3c53abe83653508650f9d2c8[m
+Author: David <regev.david06@gmail.com>
+Date:   Sun Apr 14 12:32:23 2019 +0300
+
+    Add project files.
+
+[33mcommit 84f1eef2603d0248642dc32390e33f073d8aa6b7[m
+Author: David <regev.david06@gmail.com>
+Date:   Sun Apr 14 12:32:20 2019 +0300
+
+    Add .gitignore and .gitattributes.
