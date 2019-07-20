@@ -50,9 +50,9 @@ namespace FlightSimulator.Views
         private void ConnectClick()
         {
             is_connect = true;
-            server = new TCPServer();
+            server =TCPServer.Instance;
             server.start();
-            TCPClient client = new TCPClient();
+            TCPClient client =TCPClient.Instance;
         }
 
 
@@ -69,7 +69,7 @@ namespace FlightSimulator.Views
         {
             if (is_connect)
             {
-                TCPClient client = new TCPClient();
+                TCPClient client = TCPClient.Instance;
                 client.Close();
                 server.Stop();
                 is_connect = false;

@@ -13,7 +13,7 @@ using FlightSimulator.ViewModels;
 
 namespace FlightSimulator.Model
 {
-    class TCPServer 
+    class TCPServer : INotifyPropertyChanged
     {
         TcpListener server;
         private ApplicationSettingsModel app;
@@ -22,7 +22,26 @@ namespace FlightSimulator.Model
         private BinaryReader reader;
         private readonly object locker;
         private Thread t;
+        private double lon;
+        private double lat;
+        public double Lon { set; get; }
+        public double Lat { set; get; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        #region Singleton
+        private static TCPServer m_Instance = null;
+        public static TCPServer Instance
+        {
+            get
+            {
+                if (m_Instance == null)
+                {
+                    m_Instance = new TCPServer();
+                }
+                return m_Instance;
+            }
+        }
+        #endregion
         public TCPServer()
         {
             IPAddress localAddr = IPAddress.Parse(ApplicationSettingsModel.Instance.FlightServerIP);
@@ -41,7 +60,7 @@ namespace FlightSimulator.Model
 
                     server.Start();
                     TcpClient client = server.AcceptTcpClient();
-                    FlightBoardViewModel fbvm = FlightBoardViewModel.Instance;
+                    //FlightBoardViewModel fbvm = FlightBoardViewModel.Instance;
                     while (true)
 
                     {
@@ -55,9 +74,12 @@ namespace FlightSimulator.Model
 
                             lock (locker)
                             {
-                                // take from the flight only the lon and the lat
-                                fbvm.change(Convert.ToDouble(param[0]), Convert.ToDouble(param[1]));
-                            }
+                                 // take from the flight only the lon and the lat
+                                 //fbvm.change(Convert.ToDouble(param[0]), );
+                                 Lon= Convert.ToDouble(param[0]);
+                                 Lat = Convert.ToDouble(param[1]);
+                                 PropertyChanged(this, new PropertyChangedEventArgs("Lat&Lon"));
+                             }
                         }
                         catch
                         {

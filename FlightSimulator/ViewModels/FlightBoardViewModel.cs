@@ -1,30 +1,32 @@
-﻿using FlightSimulator.Model.Interface;
+﻿using FlightSimulator.Model;
+using FlightSimulator.Model.Interface;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace FlightSimulator.ViewModels
 {
     public class FlightBoardViewModel : BaseNotify
     {
-        #region Singleton
 
-        private static FlightBoardViewModel m_Instance = null;
-        public static FlightBoardViewModel Instance
+        public FlightBoardViewModel()
         {
-            get
-            {
-                if (m_Instance == null)
-                {
-                    m_Instance = new FlightBoardViewModel();
-                }
-                return m_Instance;
-            }
+            TCPServer tcpServer = TCPServer.Instance;
+            tcpServer.PropertyChanged += delegate (object sender, PropertyChangedEventArgs e)
+             {
+                 if (tcpServer == sender)
+                 {
+                     Lon = tcpServer.Lon;
+                     Lat = tcpServer.Lat;
+                     NotifyPropertyChanged("Lon");
+                     NotifyPropertyChanged("Lat");
+                 }
+             };
         }
-        #endregion
-
         private double lon;
         public double Lon
         {
@@ -45,12 +47,5 @@ namespace FlightSimulator.ViewModels
             }
         }
 
-        public void change(double newLon, double newLat)
-        {
-            Lat = newLat;
-            Lon = newLon;
-            NotifyPropertyChanged("Lon");
-            NotifyPropertyChanged("Lat");
-        }
     }
 }
